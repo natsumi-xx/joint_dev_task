@@ -109,6 +109,15 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  # 配列並び替え
+  sports.flatten!
+  # 重複削除
+  sports.uniq!
+
+  puts "ユーザーの趣味一覧"
+  sports.each.with_index(1) do |sport, i|
+    puts "No#{i} #{sport}"
+  end
 
 end
 
@@ -116,6 +125,7 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+  puts data[:user][:name]
 
 end
 
@@ -124,6 +134,8 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
+  user_data.merge!(update_data)
+  puts user_data
 
 end
 
@@ -131,7 +143,7 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
+  p data.keys
 end
 
 def q15
@@ -139,6 +151,13 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+  if data1.key?(:age)
+    puts "OK"
+  else
+    puts "NG"
+  end
+
+  puts data2.key?(:age) ? "OK" : "NG"
 
 end
 
@@ -151,6 +170,9 @@ def q16
   ]
 
   # 以下に回答を記載
+  users.each do |user|
+    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
+  end
 
 end
 
